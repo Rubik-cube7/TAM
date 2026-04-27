@@ -1,9 +1,7 @@
-<img width="840" height="600" alt="image" src="https://github.com/user-attachments/assets/c5d90d98-953b-4e44-96b7-a2d808c7a815" />🌟 TAM: 跨模态视觉解释机制与多任务泛化研究
+<img width="618" height="487" alt="image" src="https://github.com/user-attachments/assets/2bcd7e8a-81b9-407c-a230-528a7d453a07" /><img width="692" height="389" alt="image" src="https://github.com/user-attachments/assets/3b4f9a6e-3971-4d11-a6e6-ffa9fadcdb0d" /><img width="692" height="573" alt="image" src="https://github.com/user-attachments/assets/db5c9708-bd51-435d-affb-4e2a81a794ff" /><img width="693" height="503" alt="image" src="https://github.com/user-attachments/assets/cb44be9f-d19a-48ee-a29b-fe0dfbc29f3f" /><img width="840" height="600" alt="image" src="https://github.com/user-attachments/assets/c5d90d98-953b-4e44-96b7-a2d808c7a815" />🌟 TAM: 跨模态视觉解释机制与多任务泛化研究
 (Cross-Task Generalization of Token Activation Map)
-
 # 项目简介
 针对多模态大语言模型（MLLMs）在自回归生成过程中因强烈的上下文依赖（Contextual Interference），导致传统视觉归因方法生成大量冗余噪声激活图的问题，本项目深入探究了基于 TAM (Token Activation Map) 的视觉解释范式。
-
 本项目不仅包含了 TAM 核心机制（因果推断与秩高斯滤波）的底层代码实现，更创新性地完成了该去噪算法在纯视觉黑盒模型（如细粒度图像分类）中的跨架构迁移，以及在动态时空任务（基于 MVBench 视频数据集的 RAG 框架）中的泛化验证。核心模块说明
 1. TAM 视觉解释核心 (TAM 文件夹)
 核心机制：通过引入因果推断模块，利用历史词与当前词的语义相关度估算并剥离冗余的“视觉干扰图”；随后结合秩高斯滤波器 (Rank Gaussian Filter) 去除 Transformer 架构特有的高频“椒盐噪声”。
