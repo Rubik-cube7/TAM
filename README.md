@@ -1,21 +1,21 @@
-🌟 TAM: 跨模态视觉解释机制与多任务泛化研究
+<img width="840" height="600" alt="image" src="https://github.com/user-attachments/assets/c5d90d98-953b-4e44-96b7-a2d808c7a815" />🌟 TAM: 跨模态视觉解释机制与多任务泛化研究
 (Cross-Task Generalization of Token Activation Map)
 
-📖 项目简介
+# 项目简介
 针对多模态大语言模型（MLLMs）在自回归生成过程中因强烈的上下文依赖（Contextual Interference），导致传统视觉归因方法生成大量冗余噪声激活图的问题，本项目深入探究了基于 TAM (Token Activation Map) 的视觉解释范式。
 
 本项目不仅包含了 TAM 核心机制（因果推断与秩高斯滤波）的底层代码实现，更创新性地完成了该去噪算法在纯视觉黑盒模型（如细粒度图像分类）中的跨架构迁移，以及在动态时空任务（基于 MVBench 视频数据集的 RAG 框架）中的泛化验证。核心模块说明
-1. 🔍 TAM 视觉解释核心 (TAM 文件夹)
+1. TAM 视觉解释核心 (TAM 文件夹)
 核心机制：通过引入因果推断模块，利用历史词与当前词的语义相关度估算并剥离冗余的“视觉干扰图”；随后结合秩高斯滤波器 (Rank Gaussian Filter) 去除 Transformer 架构特有的高频“椒盐噪声”。
 性能表现：大幅降低了模型的视觉解释歧义，在 F1-IoU 综合评估基准上取得了 8.96% 的显著提升，实现了精准的 Token 级视觉对齐。
-2. 🦅 鸟类细粒度分类跨架构迁移 (Bird 文件夹)
+3. 🦅 鸟类细粒度分类跨架构迁移 (Bird 文件夹)
 任务挑战：鸟类细粒度分类具有类间差异小、类内变化剧烈的难点。
 创新工作：将 TAM 底层的秩高斯去噪算法跨架构迁移至纯视觉模型（ViT, ResNet50, EfficientNet-B4）中，增强了黑盒模型决策的可解释性。
 实验细节：进行了严谨的系统性消融实验（涵盖数据增强、学习率调度、正则化策略及输入分辨率），优化后的 EfficientNet-B4 模型结合 448px 高分辨率，最高验证准确率达到 89.87%。
-3. 🎬 长视频理解与泛化测试 (基于 MVBench)
+5. 长视频理解与泛化测试 (基于 MVBench)
 实验设置：在 Autodl 服务器上全栈部署，针对长时空动态任务，在 MVBench 200个视频数据集 上进行了长视频推理与注意力热力图分析。
-工程优化：针对硬件显存限制，灵活调整最大采样帧数（max frames num = 4），并结合长视频理解框架（如 Video-RAG 的查询解耦思想），成功跑通并测试了开放式问答，有效避免了长文本溢出。
-💡 个人感悟与总结 (Insights)
+工程优化：针对硬件显存限制，灵活调整最大采样帧数（max frames num = 4），并结合长视频理解框架（如 Video-RAG 的查询解耦思想），成功跑通并测试了开放式问答，有效避免了长文本溢出。此文代码可见《Video-RAG: Visually-aligned Retrieval-Augmented Long Video Comprehension》
+个人感悟与总结 
 在独立推进本项目的全生命周期中，我获得了以下深度的科研与工程思考：
 “打破黑盒”的学术直觉：
 在复现 TAM 框架时，我没有局限于大语言模型，而是敏锐地察觉到其底层的“秩高斯滤波去噪”思想同样适用于传统纯视觉模型。通过在 Bird 任务上的成功迁移与热力图对比，我深刻认识到：优秀的可解释性算法应当具备跨模态、跨架构的生命力。
@@ -24,25 +24,22 @@
 对前沿方向的批判性思考：
 在大量的热力图可视化实验中，我也发现了现有方法的局限性（例如过度滤波可能导致重点特征过薄并与复杂背景融合）。这促使我产生了将其反向应用于“动态关键帧提取”等新思路。这次经历不仅锻炼了我的全栈调优技能，更确立了我独立开展多模态可解释性与动态推理方向前沿研究的信心与能力。
 
-🛠️ 快速开始 (Quick Start)
+快速开始 (Quick Start)
 (此处可根据您的实际代码运行方式进行修改)
-
 克隆仓库:
-
 Bash
 git clone https://github.com/YourUsername/TAM-Cross-Task-Generalization.git
 cd TAM-Cross-Task-Generalization
 安装依赖环境:
-
 Bash
 pip install -r requirements.txt
 运行 TAM 核心测试:
-
 Bash
 cd TAM
 # 运行您的主程序命令
+TAM的使用
+cd ..TAM
 运行鸟类细粒度分类验证:
-
 Bash
 cd ../Bird
 # 运行训练或推理脚本
